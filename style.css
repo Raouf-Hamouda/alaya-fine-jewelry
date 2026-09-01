@@ -1671,3 +1671,6 @@ button, a { touch-action: manipulation; }
 .gal-vign img { transition: none; }
 .gal-vign.is-on img, .gal-vign:active img { transform: none; }
 .sel-val.vif { animation: none; }
+/* 2 sept. : plus de seconde monture qui apparait au survol des vignettes non plus */
+.product-card .carte-alt { display: none !important; }
+.product-card a:hover .carte-alt { opacity: 0; }
