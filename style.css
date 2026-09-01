@@ -1729,3 +1729,29 @@ p { line-height: 1.7; }
   .fiche-bas { gap: 30px; }
   .block-text p { max-width: 34ch; }
 }
+
+/* 2 sept. 1 h 40 : le carat a l'echelle d'une piece de 1 euro ; la purete en pierre facettee ;
+   la fiche : une ligne de dessin en tete, le reste en petit */
+.carat-scene-ligne { display: flex; justify-content: center; align-items: flex-end; gap: 56px; margin-bottom: 10px; }
+.carat-cercle-boite { height: auto; min-height: 0; gap: 14px; }
+.carat-ref { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.carat-piece { display: block; width: 170px; height: 170px; border-radius: 50%; border: 1px solid #c9c9c9; background: radial-gradient(circle at 40% 35%, #fbfaf6, #e6e2d8 70%, #d3cec2); box-shadow: inset 0 0 0 10px rgba(255,255,255,.35); }
+.carat-scene .carat-cercle-boite .carat-cercle { border: 0; }
+.carat-scene .carat-mm { white-space: nowrap; }
+@media (max-width: 900px) { .carat-scene-ligne { gap: 32px; } .carat-piece { width: 120px; height: 120px; box-shadow: inset 0 0 0 7px rgba(255,255,255,.35); } }
+
+.pierre-purete { width: 300px; margin: 0 auto 26px; }
+#inclusions > * { opacity: 0; transition: opacity .6s ease-in-out; }
+#inclusions > *.est-la { opacity: 1; }
+#inclusions .cristal { fill: #6b6b6b; }
+#inclusions .plume { fill: none; stroke: #7a7a7a; stroke-width: .55; stroke-linecap: round; }
+#inclusions .nuage { fill: #8a8a8a; filter: url(#flou); opacity: 0; }
+#inclusions .nuage.est-la { opacity: .28; }
+.loupe-cercle { opacity: .5; }
+@media (max-width: 900px) { .pierre-purete { width: 240px; } }
+
+.fiche-texte .fiche-ligne { font-family: var(--font-edito); font-size: 1.25rem; line-height: 1.4; color: var(--ink); margin: 0 0 14px; max-width: 30ch; }
+.fiche-texte p:first-child { font-family: inherit; font-size: inherit; line-height: inherit; color: inherit; max-width: 64ch; }
+.fiche-texte p { font-size: var(--fs-body-m); color: #444; margin: 0 0 10px; }
+.fiche-texte .fiche-ligne + p { color: #444; }
+@media (max-width: 900px) { .fiche-texte .fiche-ligne { font-size: 1.125rem; max-width: none; } .fiche-texte p { font-size: var(--fs-body-m); } }

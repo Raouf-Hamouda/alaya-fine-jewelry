@@ -758,18 +758,12 @@
       ['SI2', 'Slightly Included 2', 'Évidentes à la loupe, parfois visibles à l’œil nu selon l’endroit.', 14]
     ];
     var boite = $('#inclusions');
-    var POINTS = [[92,88,1.9],[118,80,1.4],[104,112,2.1],[80,104,1.3],[128,110,1.7],[96,132,1.9],[112,96,1.3],[76,86,1.6],[136,92,1.2],[100,150,1.8],[86,120,1.5],[122,130,1.7],[106,66,1.1],[84,64,1.8]];
-    POINTS.forEach(function (pt) {
-      var c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      c.setAttribute('cx', pt[0]); c.setAttribute('cy', pt[1]); c.setAttribute('r', pt[2]);
-      boite.appendChild(c);
-    });
     var majPurete = function () {
       var d = PURETES[parseInt(glisseurPurete.value, 10)];
       $('#purete-code').textContent = d[0];
       $('#purete-nom').textContent = d[1];
       $('#purete-dit').textContent = d[2];
-      $$('circle', boite).forEach(function (c, i) { c.classList.toggle('est-la', i < d[3]); });
+      Array.prototype.forEach.call(boite.children, function (c, i) { c.classList.toggle('est-la', i < d[3]); });
     };
     glisseurPurete.addEventListener('input', majPurete);
     majPurete();
@@ -781,7 +775,8 @@
     var CARATS = [[0.30, 4.3], [0.50, 5.2], [0.70, 5.75], [1.00, 6.5], [1.25, 6.9], [1.50, 7.4], [2.00, 8.2], [2.50, 8.8], [3.00, 9.4]];
     var majCarat = function () {
       var d = CARATS[parseInt(glisseurCarat.value, 10)];
-      var taille = d[1] * 17; // 1 mm rendu a 17 px
+      var piece = $('.carat-piece'); var k = piece && piece.offsetWidth ? piece.offsetWidth / 23.25 : 17;
+      var taille = d[1] * k; // meme echelle que la piece de 1 euro (23,25 mm)
       var cercle = $('#carat-cercle');
       cercle.style.width = taille + 'px';
       cercle.style.height = taille + 'px';
@@ -789,6 +784,7 @@
       $('#carat-valeur').textContent = d[0].toFixed(2).replace('.', ',');
     };
     glisseurCarat.addEventListener('input', majCarat);
+    window.addEventListener('resize', majCarat);
     majCarat();
   }
 
