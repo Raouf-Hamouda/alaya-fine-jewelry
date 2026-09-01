@@ -1664,3 +1664,10 @@ button, a { touch-action: manipulation; }
 .panier-total .etincelle--3 { top: -.5em; right: -.3em; }
 .panier-total .etincelle--2 { top: .1em; right: -.9em; }
 .ba-prix .etincelle { display: none; }
+/* 2 sept. : aucun effet au changement de monture. Retour a l'etat d'avant, simple bascule. */
+.page-fiche .gal { display: flex; }
+.page-fiche .gal-groupe { grid-area: auto; transition: none; }
+.page-fiche .gal .gal-groupe[hidden] { display: none !important; }
+.gal-vign img { transition: none; }
+.gal-vign.is-on img, .gal-vign:active img { transform: none; }
+.sel-val.vif { animation: none; }
