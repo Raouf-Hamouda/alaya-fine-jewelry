@@ -1674,3 +1674,5 @@ button, a { touch-action: manipulation; }
 /* 2 sept. : plus de seconde monture qui apparait au survol des vignettes non plus */
 .product-card .carte-alt { display: none !important; }
 .product-card a:hover .carte-alt { opacity: 0; }
+/* 2 sept. : le reflet champagne au survol des bijoux est retire aussi */
+.product-card a::before, .block-category a::before, .tuiles a::before { display: none !important; content: none; }
