@@ -1676,3 +1676,56 @@ button, a { touch-action: manipulation; }
 .product-card a:hover .carte-alt { opacity: 0; }
 /* 2 sept. : le reflet champagne au survol des bijoux est retire aussi */
 .product-card a::before, .block-category a::before, .tuiles a::before { display: none !important; content: none; }
+
+/* ================================================================
+   2 sept. 1 h 20 : tout en noir sur iPhone (Safari colorait les boutons
+   en bleu), et le texte cadre partout : mesure, hierarchie, respiration.
+   ================================================================ */
+button, input, select, textarea { color: inherit; -webkit-appearance: none; appearance: none; border-radius: 0; }
+input[type="checkbox"] { -webkit-appearance: checkbox; appearance: checkbox; }
+input[type="range"].glisseur { -webkit-appearance: none; }
+.btn-pay { color: var(--ink); }
+.menu-burger, .lien-guide, .lien-guide span, .btn-retour, .menu-close, .topbar-btn, .btn-voir-plus, .btn-filtrer { color: var(--ink); }
+a, a:visited { color: inherit; }
+
+/* la mesure : une ligne de texte ne depasse pas ~64 caracteres, l'oeil ne se perd pas */
+h1, h2, h3 { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+.edito p, .fiche-texte p, .acc-corps p, .block-text p, .guide-tete p, .liste-intro p, .liste-intro-ligne, .grid-seo-text p,
+.bloc-service p, .edito-intro p, .edito-deux p, .chrono p, .rdv-voie p, .cc-note, .etapes-sm p, .edito-fin p, .block-seo p { max-width: 64ch; }
+.block-text p, .guide-tete p, .liste-intro p, .edito-intro p, .edito-fin p, .grid-seo-text p, .block-seo p, .edito-ligne { margin-left: auto; margin-right: auto; }
+body { color: #1c1c1c; }
+p { line-height: 1.7; }
+
+/* la fiche : une phrase de tete en serif, le reste plus bas et plus calme, les references en petit */
+.fiche-texte { font-size: var(--fs-body-m); line-height: 1.7; color: #333; }
+.fiche-texte p:first-child { font-family: var(--font-edito); font-size: 1.1875rem; line-height: 1.5; color: var(--ink); margin: 0 0 16px; max-width: 34ch; }
+.fiche-texte p { margin: 0 0 12px; }
+.fiche-texte .ref { font-size: var(--fs-body-s); color: var(--ink-soft); margin: 0 0 6px; letter-spacing: .01em; }
+.fiche-texte .ref:first-of-type { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.fiche-texte .ref a, .lien-pierre a { border-bottom-color: var(--rule); color: var(--ink); }
+.fiche-texte .ref a:hover, .lien-pierre a:hover { border-bottom-color: var(--ink); }
+
+/* "Dans le detail" : un tableau a deux colonnes, l'etiquette a gauche, la valeur alignee */
+.attributs { margin: 0 0 8px; }
+.attributs li { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 0 16px; margin: 0; padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: var(--fs-body-m); line-height: 1.55; }
+.attributs li:last-child { border-bottom: 0; }
+.attributs span { color: var(--ink-soft); font-size: var(--fs-body-s); letter-spacing: .02em; padding-top: 2px; }
+.acc-corps { font-size: var(--fs-body-m); line-height: 1.7; color: #333; }
+.acc-corps p { margin: 0 0 10px; }
+.note-specs { font-size: var(--fs-body-s); color: #9a9a9a; margin: 12px 0 0; }
+.acc-sous { color: var(--ink); font-size: var(--fs-body-m); }
+.acc-liste li { font-size: var(--fs-body-m); }
+.acc summary { color: var(--ink); }
+
+/* les paragraphes centres restent courts et equilibres */
+.block-text p { max-width: 46ch; }
+.edito-ligne { max-width: 44ch; }
+.guide-tete p { max-width: 58ch; }
+
+@media (max-width: 900px) {
+  .fiche-texte p:first-child { font-size: 1.0625rem; max-width: none; }
+  .attributs li { grid-template-columns: 108px minmax(0, 1fr); gap: 0 12px; }
+  .fiche-bas { gap: 30px; }
+  .block-text p { max-width: 34ch; }
+}
